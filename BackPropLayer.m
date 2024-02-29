@@ -59,7 +59,8 @@ classdef BackPropLayer < handle
         %for ease of printing, return the final output
         function out = compute(this, input)
             this.forward(input);
-            out = (this.finalOutput >= 0.4);
+            %out = (this.finalOutput >= 0.4);
+            out = this.finalOutput;
         end
 
         %factory function to help forward, send to correct function
@@ -114,6 +115,20 @@ classdef BackPropLayer < handle
                 f = sigmoidVal;
             end
         end
+
+        function f = lin(this, n, deriv)
+            if nargin < 3
+                deriv = false; % Defualt if not provided
+            end
+            denom = 1.0 + exp(-n);
+            sigmoidVal = 1.0 ./ denom;
+            if deriv
+                f = 1;
+            else
+                f = n;
+            end
+        end
+
         %% set functions
         function this = setLearningRate(this, newRate)
             this.learningRate = newRate;
@@ -132,7 +147,7 @@ classdef BackPropLayer < handle
             outputError = testPattern' - this.finalOutput;
 
             % This will be the derivative of our f(n) function
-            derivOutput = this.sigmoid(this.finalInput, true);
+            derivOutput = this.lin(this.finalInput, true);
 
             % This computes the sensitivity of the output layer
             % S(m+1) =  -2 * f'(n) * e(t-a)
@@ -153,7 +168,7 @@ classdef BackPropLayer < handle
             % First we need to get the sensitivity of the
             % hidden layer and its precursors
             % S(m) = S(m+1) * W(m+1) * f'(m)
-            derivHidden = (this.sigmoid(this.hiddenInput, true));
+            derivHidden = (this.lin(this.hiddenInput, true));
             hiddenSensitivity = (this.outputLayer.weights' * outputSensitivity) .* derivHidden;
 
             %% Update Hidden Layer Weights

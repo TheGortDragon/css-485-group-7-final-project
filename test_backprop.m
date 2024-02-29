@@ -13,13 +13,13 @@ testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
 
 
 %% setup network
-network = BackPropLayer(size(trainData, 1), 50, 1, 0.01);
-network.outputLayer.transferFunc = "logsig";
-network.hiddenLayer.transferFunc = "logsig";
+network = BackPropLayer(size(trainData, 1), 200, 1, 0.001);
+network.outputLayer.transferFunc = "purelin";
+network.hiddenLayer.transferFunc = "purelin";
 
 
 %% do the training
-epoch = 5;
+epoch = 20;
 for rounds = 1:epoch
     for i = 1:size(trainData, 2)
         % Get the ith input pattern and target patterns
@@ -38,7 +38,7 @@ testClass = zeros(size(testID));
 for i = 1:size(testData, 2)
     input = testData(:, i);
     output = network.compute(input);
-    testClass(i) = sum(output == 1);
+    testClass(i) = round(output);
 end
 
 

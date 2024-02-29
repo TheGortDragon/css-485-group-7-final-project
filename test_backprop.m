@@ -2,18 +2,18 @@ import BackPropLayer.*
 
 %% setup data
 %training data
-trainData = readmatrix('data/train.csv', 'Range', 'C2:ADF27456');
+trainData = (readmatrix('data/train.csv', 'Range', 'C2:ADF27456'))';
 trainData = trainData / 255;
-trainLabel = readmatrix('data/train.csv', 'Range', 'B2:B27456');
+trainLabel = (readmatrix('data/train.csv', 'Range', 'B2:B27456'))';
 %testing data
-testData = readmatrix('data/test.csv', 'Range', 'B2:ADE7173');
+testData = (readmatrix('data/test.csv', 'Range', 'B2:ADE7173'))';
 testData = testData / 255;
 %get id labels
 testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
 
 
 %% setup network
-network = BackPropLayer(size(trainData, 2), 20, 1, 0.01);
+network = BackPropLayer(size(trainData, 1), 50, 1, 0.01);
 network.outputLayer.transferFunc = "logsig";
 network.hiddenLayer.transferFunc = "logsig";
 
@@ -21,25 +21,24 @@ network.hiddenLayer.transferFunc = "logsig";
 %% do the training
 epoch = 5;
 for rounds = 1:epoch
-    for i = 1:size(trainData, 1)
+    for i = 1:size(trainData, 2)
         % Get the ith input pattern and target patterns
-        inputPattern = trainData(i, :);
-        targetPattern = trainLabel(i);
+        inputPattern = trainData(:, i);
+        targetPattern = trainLabel(:, i);
+        %disp(targetPattern);
 
         % Train the network with the current input and target pattern
-        network = network.train(targetPattern', inputPattern', 1);
+        network = network.train(targetPattern', inputPattern, 1);
     end
 end
 
-%disp(network.hiddenLayer.weights);
-%disp(network.outputLayer.weights);
 
 %% classify test data
 testClass = zeros(size(testID));
-for i = 1:size(testData, 1)
-    input = testData(i, :);
-    output = network.compute(input');
-    testClass(i) = output;
+for i = 1:size(testData, 2)
+    input = testData(:, i);
+    output = network.compute(input);
+    testClass(i) = sum(output == 1);
 end
 
 

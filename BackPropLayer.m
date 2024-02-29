@@ -59,7 +59,7 @@ classdef BackPropLayer < handle
         %for ease of printing, return the final output
         function out = compute(this, input)
             this.forward(input);
-            out = (this.finalOutput >= 0.5);
+            out = (this.finalOutput >= 0.4);
         end
 
         %factory function to help forward, send to correct function

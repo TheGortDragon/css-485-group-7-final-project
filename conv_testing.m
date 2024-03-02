@@ -1,4 +1,4 @@
-%% setup data
+%% get data
 %training data -> do we want to shuffle?
 trainData = readmatrix('data/train.csv', 'Range', 'C2:ADF27456');
 trainLabel = readmatrix('data/train.csv', 'Range', 'B2:B27456');
@@ -6,6 +6,22 @@ trainLabel = readmatrix('data/train.csv', 'Range', 'B2:B27456');
 testData = readmatrix('data/test.csv', 'Range', 'B2:ADE7173');
 %get id labels (to use for output file)
 testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
+
+%% reformat data
+% training data
+numImages = size(trainData, 1);
+imgSize = [28, 28];
+train3D = zeros([imgSize, numImages]);
+for i = 1:numImages
+    train3D(:, :, i) = reshape(trainData(i, :), image_size);
+end
+
+% test data
+numImages = size(testData, 1);
+test3D = zeros([imgSize, numImages]);
+for i = 1:numImages
+    test3D(:, :, i) = reshape(testData(i, :), image_size);
+end
 
 %% setup network
 

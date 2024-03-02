@@ -9,6 +9,9 @@ classdef CNN
     end
 
     methods
+        function this = CNN()
+
+        end
         function predict(this)
             
         end

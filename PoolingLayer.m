@@ -1,4 +1,4 @@
-classdef ReshapeLayer < Layer
+classdef PoolingLayer < Layer
 
     properties
 

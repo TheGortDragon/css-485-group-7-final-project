@@ -1,7 +1,7 @@
 classdef Layer < handle
     %% abstract class
 
-    properties
+    properties %idk if we need input and output honestly, but can keep it
         input
         output
     end

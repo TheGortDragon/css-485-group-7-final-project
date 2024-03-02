@@ -44,7 +44,7 @@ classdef ConvLayer < handle
     methods(Static)
         % compute cross entropy loss
         function val = xEnLoss(target, actual) %should be vectors
-            val = -sum((target * log(actual)), 2);
+            val = -sum((target * log(actual));
         end
 
         %find the error

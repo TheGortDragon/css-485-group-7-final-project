@@ -9,6 +9,10 @@ classdef CNN
     end
 
     methods
+        % constructor, need to setup up all the layers (including activations)
+        function this = CNN()
+
+        end
         function predict(this)
             
         end

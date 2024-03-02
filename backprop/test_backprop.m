@@ -2,14 +2,18 @@ import BackPropLayer.*
 
 %% setup data
 %training data
-trainData = (readmatrix('data/train.csv', 'Range', 'C2:ADF27456'))';
+trainData = (readmatrix('/Users/yasminesubbagh/Documents/MATLAB/css-485-group-7-final-project/data/train.csv', 'Range', 'C2:ADF27456'))';
 trainData = trainData / 255;
-trainLabel = (readmatrix('data/train.csv', 'Range', 'B2:B27456'))';
+trainData(trainData < 0.3) = 0;
+trainData(trainData >= 0.3) = 1;
+trainLabel = (readmatrix('/Users/yasminesubbagh/Documents/MATLAB/css-485-group-7-final-project/data/train.csv', 'Range', 'B2:B27456'))';
 %testing data
-testData = (readmatrix('data/test.csv', 'Range', 'B2:ADE7173'))';
+testData = (readmatrix('/Users/yasminesubbagh/Documents/MATLAB/css-485-group-7-final-project/data/test.csv', 'Range', 'B2:ADE7173'))';
 testData = testData / 255;
+testData(testData < 0.3) = 0;
+testData(testData >= 0.3) = 1;
 %get id labels
-testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
+testID = readmatrix('/Users/yasminesubbagh/Documents/MATLAB/css-485-group-7-final-project/data/test.csv', 'Range', 'A2:A7173');
 
 
 %% setup network

@@ -8,8 +8,11 @@ classdef ConvolutionLayer < Layer
     end
 
     methods
-        function this = ConvolutionLayer(inputHeight, inputWidth, inputDepth, kernelSize)
-            
+        function this = ConvolutionLayer(inputSize, kernelSize) %kernel size is the same as output size
+            this.input.size = inputSize;
+            this.kernelW = rand(kernelSize);
+            this.output.size = inputHeight - kernelSize + 1;
+            this.bias = rand(this.output.size);
         end
 
         function forward(this)

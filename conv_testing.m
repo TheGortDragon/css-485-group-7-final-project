@@ -1,10 +1,10 @@
 %% setup data
-%training data
+%training data -> do we want to shuffle?
 trainData = readmatrix('data/train.csv', 'Range', 'C2:ADF27456');
 trainLabel = readmatrix('data/train.csv', 'Range', 'B2:B27456');
 %testing data
 testData = readmatrix('data/test.csv', 'Range', 'B2:ADE7173');
-%get id labels
+%get id labels (to use for output file)
 testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
 
 %% setup network
@@ -19,15 +19,14 @@ testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
 %% test network
 
 
-%% produce figs for doc
+%% produce figs for doc ?
 
 
 %% export resutls
-testClass = []; %classification (w forward) of test data
-% Define the column names and the file name
+testResults = []; %classification (w forward) of test data
+
+%create table and export
 columnNames = {'id', 'label'};
-fileName = 'backpropClassification.csv';
-% Create a table with the output data and column names
-outputTable = array2table([testID, testClass], 'VariableNames', columnNames);
-% Write the table to a CSV file
+fileName = 'convResults.csv';
+outputTable = array2table([testID, testResults], 'VariableNames', columnNames);
 writetable(outputTable, fileName);

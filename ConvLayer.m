@@ -16,7 +16,8 @@ classdef ConvLayer < handle
             this.outputSize = outputShape;
             this.kernelSize = kernelShape;
             this.numKernels = depth;
-            this.kernels = rand(kernelSize, kernelSize);
+            % coudld setup w zavier instead of random?
+            this.kernels = rand(kernelSize, kernelSize); 
             this.biases = rand(outputSize, 1);
         end
 
@@ -42,14 +43,14 @@ classdef ConvLayer < handle
 
         % backwards function (dunno)
         function input_gradient = backward(this, output_gradient, learningRate)
-            
+            input_gradient = output_gradient; % temp
         end
 
         % training function
         function this = train(this, inputPattern, targetPattern, epochs, learningRate)
             for e = 1:epochs
                 % get forward results
-                % get error
+                % get mse, actually dont think we gotta do this?
                 % do backwards
             end
         end

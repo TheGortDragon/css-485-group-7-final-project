@@ -8,6 +8,7 @@ classdef ConvLayer < handle
         biases
     end
 
+    %% class functions
     methods
         % constructor
         function this = ConvLayer(inputShape, outputShape, kernelShape, depth)
@@ -38,12 +39,45 @@ classdef ConvLayer < handle
             end
         end
 
+        %% activations
+        % logsigmoid
+        function f = sigmoid(n, deriv)%use deriv as boolean for if deriv
+            if nargin < 2
+                deriv = false; % Defualt if not provided
+            end
+            denom = 1.0 + exp(-n);
+            sigmoidVal = 1.0 ./ denom;
+            if deriv % derivitice of logsig
+                f = exp(-n) ./ (denom .* denom);
+            else %standard logisg
+                f = sigmoidVal;
+            end
+        end
+
+        %ReLu
+        function f = relu(n, deriv)
+            if nargin < 2
+                deriv = false; % Defualt if not provided
+            end
+            if deriv % derivative of relu
+                f = n > 0;
+            else %standard relu
+                f = max(0, n);
+            end
+        end
+
+        % softmax
+        function f = softMax(n)
+            sum = sum(n);
+            f = n / sum;
+        end
+
     end
 
-
+    %% outside of class functions
     methods(Static)
         % compute cross entropy loss
-        function val = xEnLoss(target, actual) %should be vectors
+        function val = xeLoss(target, actual) %should be vectors
             val = -sum((target * log(actual)), 2);
         end
 

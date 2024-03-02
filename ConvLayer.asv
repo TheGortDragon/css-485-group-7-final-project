@@ -30,12 +30,26 @@ classdef ConvLayer < handle
                 end
                 output = this.biases(i) + sum;
             end
+
+            %activate
+            %reshape to output size
+            %dense?
+            %activate?
+            %dense?
+            % final activation (softmax)
+
+        end
+
+        % backwards function
+        function input_gradient = backward(this, output_gradient, learningRate)
+            
         end
 
         % training function
         function this = train(this, inputPattern, targetPattern, epochs, learningRate)
             for e = 1:epochs
-                
+                % get forward results
+                % get er
             end
         end
 
@@ -49,26 +63,27 @@ classdef ConvLayer < handle
             sigmoidVal = 1.0 ./ denom;
             if deriv % derivitice of logsig
                 f = exp(-n) ./ (denom .* denom);
-            else %standard logis
+            else %standard logisg
                 f = sigmoidVal;
             end
         end
 
-        %ReLu
+        % rectified linear
         function f = relu(n, deriv)
             if nargin < 2
                 deriv = false; % Defualt if not provided
             end
             if deriv % derivative of relu
-                f = 
+                f = n > 0;
             else %standard relu
-                f = sigmoidVal;
+                f = max(0, n);
             end
         end
 
         % softmax
-        function f = softMax(n)
-
+        function f = softMax(n) % n should be a vector
+            denom = sum(n, 2);
+            f = n / denom;
         end
 
     end

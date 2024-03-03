@@ -17,7 +17,7 @@ classdef CNN
             
         end
         function train(this)
-            
+            % sequentially
         end
     end
 end

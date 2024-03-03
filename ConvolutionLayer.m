@@ -30,7 +30,7 @@ classdef ConvolutionLayer < Layer % for a (depth) 1 input network
                 this.output.result(i, :, :) = convResult + this.bias(i);
             end
 
-            output = this.output.result;
+            output = this.output.result; %idk why this is necessary but he does it
         end
 
         % backward function

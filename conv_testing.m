@@ -9,9 +9,9 @@ testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
 
 %% normalize data?
 % scale to 0-1?
-% zero out values below a threshold (0.3) ?
+% zero out values below a threshold (~0.3) ?
 
-%% reformat data
+%% reformat data (784x1 -> 28x28)
 % training data
 numImages = size(trainData, 1);
 imgSize = [28, 28];
@@ -45,7 +45,7 @@ end
 %% export resutls
 testResults = []; %classification (w forward) of test data
 
-%create table and export
+% create table and export
 columnNames = {'id', 'label'};
 fileName = 'convResults.csv';
 outputTable = array2table([testID, testResults], 'VariableNames', columnNames);

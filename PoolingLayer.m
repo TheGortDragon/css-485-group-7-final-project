@@ -11,8 +11,8 @@ classdef PoolingLayer < Layer
     methods
         % constructor
         function this = PoolingLayer(poolSize, strideSize, type) % square
-            if ~(strcmp(mode, 'max')) % add more options as we see fit
-                error('Invalid pooling type. Supported types are "max".');
+            if ~(strcmp(mode, 'min')) % add more options as we see fit
+                error('Invalid pooling type. Supported types are "min".');
             end
 
             this.poolSize = poolSize;
@@ -34,11 +34,11 @@ classdef PoolingLayer < Layer
                 for k = 1:this.output.shape(2)
                     start_row = (j - 1) * this.stride + 1;
                     end_row = min(start_row + this.poolSize - 1, sqrSize);
-                    start_col = (k - 1) * obj.stride + 1;
+                    start_col = (k - 1) * this.stride + 1;
                     end_col = min(start_col + this.poolSize - 1, sqrSize);
                     
                     if strcmp(obj.mode, 'max')
-                        output(j, k) = max(max(input(start_row:end_row, start_col:end_col)));
+                        output(j, k) = min(min(input(start_row:end_row, start_col:end_col)));
                     end
                 end
             end

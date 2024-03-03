@@ -34,11 +34,13 @@ classdef PoolingLayer < Layer
                 for k = 1:this.output.shape(2)
                     start_row = (j - 1) * this.stride + 1;
                     end_row = min(start_row + this.poolSize - 1, sqrSize);
-                    start_col = (k - 1) * obj.stride + 1;
+                    start_col = (k-1) * obj.stride + 1;
                     end_col = min(start_col + this.poolSize - 1, sqrSize);
                     
                     if strcmp(obj.mode, 'max')
                         output(j, k) = max(max(input(start_row:end_row, start_col:end_col)));
+                    elseif strcmp(obj.mode, 'average')
+                        output(j, k) = mean(mean(input(start_row:end_row, start_col:end_col)));
                     end
                 end
             end

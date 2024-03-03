@@ -1,22 +1,40 @@
-classdef DenseLayer
+classdef DenseLayer < Layer
     %DENSELAYER Summary of this class goes here
     %   Detailed explanation goes here
 
     properties
-        Property1
+        input % has sub variables
+            % size, lastInput
+        output % has sub variables
+            % size
+        weights
+        bias
     end
 
     methods
-        function obj = DenseLayer(inputArg1,inputArg2)
-        %DENSELAYER Construct an instance of this class
-        %   Detailed explanation goes here
-        obj.Property1 = inputArg1 + inputArg2;
+        %constructor
+        function this = DenseLayer(inputSize,outputSize)
+            this.input.size = inputSize; %square matrices
+            this.output.size = outputSize; % ^
+            this.weights = rand(this.output.size, this.input.size);
+            this.bias = rand(this.output.size, 1);
         end
 
-        function outputArg = method1(obj,inputArg)
-        %METHOD1 Summary of this method goes here
-        %   Detailed explanation goes here
-        outputArg = obj.Property1 + inputArg;
+        %forward function
+        function output = forward(this, input)
+            this.input.lastInput = input;
+            output = (this.weights * input) + this.bias;
         end
+
+        %backward function
+        function input_gradient = backward(this, output_gradient, learningRate)
+            weight_gradient = output_gradient * this.input.lastInput';
+            input_gradient = this.weights' * output_gradient;
+
+            %update values
+            this.weights = this.weights - (learningRate * weight_gradient);
+            this.bias = this.bias - (learningRate * output_gradient);
+        end
+
     end
 end

@@ -1,0 +1,24 @@
+classdef ReshapeLayer < Layer
+
+    properties
+        input
+        output
+    end
+
+    methods
+        %constructor
+        function this = ReshapeLayer(inputSize, outputSize)
+            
+        end
+
+        %forward
+        function forward(this)
+            
+        end
+
+        %backward
+        function backward(this)
+            
+        end
+    end
+end

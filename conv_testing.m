@@ -28,7 +28,8 @@ for i = 1:numImages
 end
 
 %% setup network
-
+cnn = CNN();
+cnn.train(train3D, trainLabel, 3, 3, 24, 10, .5);
 
 %% train network
 

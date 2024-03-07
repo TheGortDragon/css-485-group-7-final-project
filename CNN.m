@@ -24,16 +24,19 @@ classdef CNN < handle
         function train(this, data, labels, kernelSize, depth, outputSize, epoch, learningRate)
             this.conLayer = ConvolutionLayer(size(data, 1), kernelSize, depth);
             this.reluLayer = ReLULayer();
-            this.poolingLayer = PoolingLayer(2, 2, 3, 'max');
+            this.poolingLayer = PoolingLayer(2, 2, depth, 'max');
             this.flattenLayer = FlattenLayer();
             this.fcLayer = FCLayer((size(data, 1) - kernelSize + 1) * (size(data, 2) - kernelSize + 1) * depth / 4, outputSize);
             % sequentially
             % conv -> ReLU -> pooling -> fully connected
             % cross entropy loss -> backprop -> update weights
             for i = 1:epoch
+                disp("Current Epoch: " + i);
                 for j = 1:size(data, 3)
                     result = this.predict(data(:, :, j));
-                    loss = labels(:, j) - result;
+                    loss = (labels(:, j) - result) .* (labels(:, j) - result);
+                    %calculate cross entropy
+                    ceLoss = sum(-labels(:, j) .* log(result));
                     currGradient = this.fcLayer.backward(loss, learningRate);
                     currGradient = this.flattenLayer.backward(currGradient);
                     currGradient = this.poolingLayer.backward(currGradient);

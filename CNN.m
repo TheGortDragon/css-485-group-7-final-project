@@ -21,7 +21,7 @@ classdef CNN < handle
             output = this.fcLayer.forward(output);            
         end
 
-        function train(this, data, labels, kernelSize, depth, outputSize, epoch, learningRate)
+        function this = train(this, data, labels, kernelSize, depth, outputSize, epoch, learningRate)
             this.conLayer = ConvolutionLayer(size(data, 1), kernelSize, depth);
             this.reluLayer = ReLULayer();
             this.poolingLayer = PoolingLayer(2, 2, depth, 'max');
@@ -35,9 +35,10 @@ classdef CNN < handle
                 for j = 1:size(data, 3)
                     result = this.predict(data(:, :, j));
                     loss = (labels(:, j) - result) .* (labels(:, j) - result);
+                    msePrime = 2 * (sum(loss) / numel(loss));
                     %calculate cross entropy
-                    ceLoss = sum(-labels(:, j) .* log(result));
-                    currGradient = this.fcLayer.backward(loss, learningRate);
+                    ceLoss = -sum(labels(:, j) .* log(result));
+                    currGradient = this.fcLayer.backward(msePrime, learningRate);
                     currGradient = this.flattenLayer.backward(currGradient);
                     currGradient = this.poolingLayer.backward(currGradient);
                     currGradient = this.reluLayer.backward(currGradient);

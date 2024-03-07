@@ -17,7 +17,7 @@ classdef ConvolutionLayer < Layer % for a (depth) 1 input network
             this.input.size = inputSize;
             this.kernelW = rand(kernelSize, kernelSize, depth);
             this.output.size = inputSize - kernelSize + 1;
-            this.bias = rand(this.output.size);
+            this.bias = rand(this.output.size, 1);
         end
 
         % forward function (does not include any activation)
@@ -45,7 +45,9 @@ classdef ConvolutionLayer < Layer % for a (depth) 1 input network
 
             % update values
             this.kernelW = this.kernelW - (learningRate * kernel_gradient);
-            this.bias = this.bias - ( learningRate * sum(output_gradient, 1) );
+            for i = 1:this.depth
+                this.bias(i) = this.bias(i) - learningRate * sum(output_gradient(:, :, i), 'all');
+            end
         end
     end
 end

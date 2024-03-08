@@ -26,7 +26,7 @@ classdef ConvolutionLayer < Layer % for a (depth) 1 input network
             this.output.result = zeros(this.output.size); %pre-allocate
 
             for i = 1:this.depth % each filter type
-                convResult = conv2(input, this.kernelW(:, :, i), 'valid');
+                convResult = conv2(input, rot90(this.kernelW(:, :, i), 2), 'valid');
                 this.output.result(:, :, i) = convResult + this.bias(i);
             end
 
@@ -39,8 +39,8 @@ classdef ConvolutionLayer < Layer % for a (depth) 1 input network
             input_gradient = zeros(this.input.size);
 
             for i = 1:this.depth
-                kernel_gradient(:, :, i) = conv2(this.input.lastResult, output_gradient(:, :, i), 'valid');
-                input_gradient(:, :, i) = conv2(output_gradient(:, :, i), rot90(this.kernelW(:, :, i), 2), 'full');
+                kernel_gradient(:, :, i) = conv2(this.input.lastResult, rot90(output_gradient(:, :, i), 2), 'valid');
+                input_gradient(:, :, i) = conv2(output_gradient(:, :, i), this.kernelW(:, :, i), 'full');
             end
 
             % update values

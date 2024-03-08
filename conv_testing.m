@@ -15,22 +15,23 @@ testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
 % training data
 numImages = size(trainData, 1);
 imgSize = [28, 28];
+outputSize = 24;
 train3D = zeros([imgSize, numImages]);
 for i = 1:numImages
-    %{
+    
     if trainLabel(i, 1) == 9 || trainLabel(i, 1) == 25
         train3D(:, :, i) = [];
         continue
     end
-    %}
+    
     train3D(:, :, i) = reshape(trainData(i, :), imgSize);
 end
 
 % convert labels to binary
-label2D = zeros(26, numImages);
+label2D = zeros(outputSize, numImages);
 for i = 1:size(trainLabel, 1)
     num = trainLabel(i, 1);
-    %{
+    
     if num == 9 || num == 25
         label2D(:, i) = [];
         continue
@@ -38,7 +39,7 @@ for i = 1:size(trainLabel, 1)
     if num > 9
         num = num - 1;
     end
-    %}
+    
     label2D(num + 1, i) = 1;
 end
 
@@ -61,7 +62,7 @@ train3D(train3D >= 0.7) = 1;
 cnn = CNN();
 
 %% train network
-cnn.train(train3D(:,:,:), label2D(:,:), 3, 12, 26, 3, .01);
+cnn.train(train3D(:,:,:), label2D(:,:), 3, 12, outputSize, 10, .01);
 
 %% validate network performance
 
@@ -74,9 +75,9 @@ for i = 1:size(testID, 1)
     input = test3D(:, :, i);
     output = cnn.predict(input);
     num = find(output == max(output)) - 1;
-    %if num >= 9
-    %    num = num + 1;
-    %end
+    if num >= 9
+       num = num + 1;
+    end
     testResults(i, 1) = num;
 end
 

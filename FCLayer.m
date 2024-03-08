@@ -26,7 +26,7 @@ classdef FCLayer < Layer
             this.depth = size(input, 3);
             this.input.lastInput = input;
             output = (this.weights * input) + this.bias;
-            output = softmax(output);
+            % output = softmax(output);
         end
 
         %backward function

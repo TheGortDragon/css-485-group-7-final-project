@@ -36,18 +36,21 @@ classdef CNN < handle
             % cross entropy loss -> backprop -> update weights
             for i = 1:epoch
                 disp("Current Epoch: " + i);
+                ceLoss = 0;
                 for j = 1:size(data, 3)
                     result = this.predict(data(:, :, j));
                     loss = result - labels(:, j); % (labels(:, j) - result) .* (labels(:, j) - result);
                     % msePrime = 2 * (sum(loss) / numel(loss));
                     %calculate cross entropy
-                    % ceLoss = -sum(labels(:, j) .* log(result));
+                    ceLoss = ceLoss - sum(labels(:, j) .* log(result));
                     currGradient = this.fcLayer.backward(loss, learningRate);
                     currGradient = this.flattenLayer.backward(currGradient);
                     currGradient = this.poolingLayer.backward(currGradient);
                     currGradient = this.reluLayer.backward(currGradient);
                     currGradient = this.conLayer.backward(currGradient, learningRate);
                 end
+                ceLoss = ceLoss / size(data, 3);
+                disp("Cross Entropy Loss For This Epoch: " + ceLoss);
             end
         end
     end

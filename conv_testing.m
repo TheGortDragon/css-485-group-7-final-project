@@ -62,7 +62,7 @@ train3D(train3D >= 0.7) = 1;
 cnn = CNN();
 
 %% train network
-cnn.train(train3D(:,:,:), label2D(:,:), 3, 12, outputSize, 10, .01);
+cnn.train(train3D(:,:,:), label2D(:,:), 3, 12, outputSize, 5, .01);
 
 %% validate network performance
 

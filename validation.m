@@ -2,9 +2,6 @@
 % Load the trained model file
 load('trained_model.mat');
 
-% Access the CNN object
-loaded_cnn = cnn;
-
 %% create csv
 %{
 %get id labels (to use for output file)

@@ -50,6 +50,7 @@ for i = 1:length(noiseLevels)
 
         %classify
         output = cnn.predict(noisyInput);
+        output = softmaxToOneHot(output);
 
         %check correctness
         if isCorrect(output, target)
@@ -75,20 +76,29 @@ title('Network Performance of A Convolutional Neural Network With Noisy Inputs')
 
 
 %% helper functions
-% addNoise to a vector, distort it 
-function pvec = addNoise(pvec, num)
-    % ADDNOISE Add noise to "binary" vector
-    % pvec pattern vector (-1 and 1)
-    % num number of elements to flip randomly
-    % Handle special case where there's no noise
-    if num == 0
-        return;
+% add noise to an image
+function noisyImg = addNoise(img, num)
+    % Add noise to the input image by resetting pixels to random values
+
+    % Create a copy of the input image
+    noisyImg = img;
+
+    % Get the dimensions of the image
+    [rows, cols] = size(img);
+
+    % Calculate the maximum number of pixels to reset based on the noise level
+    maxNumPixels = min(floor(0.01 * num * numel(img)), numel(img));
+
+    % Generate random row and column indices for the pixels to reset
+    inds = randperm(numel(img), maxNumPixels);
+    [row_inds, col_inds] = ind2sub([rows, cols], inds);
+
+    % Reset the selected pixels to random values between 0 and 1
+    for i = 1:maxNumPixels
+        noisyImg(row_inds(i), col_inds(i)) = rand;
     end
-    % first, generate a random permutation of all indices into pvec
-    inds = randperm(length(pvec));
-    % then, use the first n elements to flip pixels
-    pvec(inds(1:num)) = -pvec(inds(1:num));
-end 
+end
+
 
 %check if the output matches the target
 function correct = isCorrect(target, actual)
@@ -98,4 +108,15 @@ function correct = isCorrect(target, actual)
     else
         correct = false; % Vectors are not equal
     end
+end
+
+function oneHotVector = softmaxToOneHot(softmaxVector)
+    % Find the index of the maximum value in the softmax vector
+    [~, maxIndex] = max(softmaxVector);
+
+    % Create a one-hot encoded vector
+    oneHotVector = zeros(size(softmaxVector));
+
+    % Set the element with the maximum probability to 1
+    oneHotVector(maxIndex) = 1;
 end

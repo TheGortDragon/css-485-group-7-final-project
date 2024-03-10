@@ -2,6 +2,7 @@
 %% load in image and label data
 load('train3D.mat');
 load('label2D.mat');
+outputSize = 24;
 
 %% setup and train networks
 % kernel size 1x1, channel size 3

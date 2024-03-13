@@ -1,32 +1,20 @@
 %% load in trained model
-% Load the trained model file
-load('trained_model.mat');
+% Load the trained model files
+load('cnn13.mat');
+load('cnn16.mat');
+load('cnn112.mat');
+load('cnn33.mat');
+load('cnn36.mat');
+load('cnn312.mat');
+load('cnn53.mat');
+load('cnn56.mat');
+load('cnn512.mat');
 
-%% create csv
+%load data in
+load('label2D.mat');
+load('train3D.mat');
+
 %{
-%get id labels (to use for output file)
-testID = readmatrix('data/test.csv', 'Range', 'A2:A7173');
-
-% test network
-testResults = zeros(size(testID)); %classification (w forward) of test data
-
-for i = 1:size(testID, 1)
-    input = test3D(:, :, i);
-    output = cnn.predict(input);
-    num = find(output == max(output)) - 1;
-    if num >= 9
-       num = num + 1;
-    end
-    testResults(i, 1) = num;
-end
-
-% create table and export
-columnNames = {'id', 'label'};
-fileName = 'convResults.csv';
-outputTable = array2table([testID, testResults], 'VariableNames', columnNames);
-writetable(outputTable, fileName);
-%}
-
 %% validate network performance and abillity w dirty
 % setup noise and accuracy
 noiseLevels = [0 50 100 200 400];
@@ -70,6 +58,31 @@ grid on;
 xlabel('Number Of Pixels Flipped');
 ylabel('Classification Accuracy (%)');
 title('Network Performance of A Convolutional Neural Network With Noisy Inputs');
+%}
+
+%% kernel manipulation
+kernelSize = [1, 3, 5];
+kernelCount = [3, 6, 12];
+accuracyMatrix = zeros(3, 3); % kernel size by kernel count
+
+for i = 1 : length(kernelCount)
+    for j = 1: length(kernelSize)
+        % wait no totally sure how youre gonna get the diff network, could
+        % use a helper function 
+
+        correctCount = 0;
+
+        for k = 1 : size(train3D, 3)
+
+        % classify
+        % use get one hot for comparison
+
+        % ifCorrect add to correctCount
+
+        end
+        accuracyMatrix(j, i) = (correctCount / size(test3D, 3)) * 100;
+    end
+end
 
 
 %% helper functions

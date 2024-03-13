@@ -1,0 +1,154 @@
+>> conv_testing2
+
+cnn13:
+
+Current Epoch: 1
+Cross Entropy Loss For This Epoch: 3.1818
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 3.1785
+
+cnn16:
+
+Current Epoch: 1
+Cross Entropy Loss For This Epoch: 3.184
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 3.1785
+
+cnn112:
+
+Current Epoch: 1
+Cross Entropy Loss For This Epoch: 3.1874
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 3.1785
+
+cnn33:
+
+Current Epoch: 1
+Cross Entropy Loss For This Epoch: 3.1959
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 3.1785
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 3.1785
+
+cnn36:
+
+Current Epoch: 1
+Cross Entropy Loss For This Epoch: 1.8638
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 0.71008
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 0.54276
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 0.46793
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 0.42201
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 0.38824
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 0.36139
+
+cnn312:
+
+Current Epoch: 1
+Cross Entropy Loss For This Epoch: 1.5573
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 0.53109
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 0.37899
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 0.31607
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 0.28009
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 0.25176
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 0.23208
+
+cnn53:
+
+Current Epoch: 1
+Cross Entropy Loss For This Epoch: 2.2391
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 0.67245
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 0.47159
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 0.39965
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 0.35498
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 0.36711
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 0.34309
+
+cnn56:
+
+Current Epoch: 1
+    <missing>
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 0.52096
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 0.22939
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 0.13418
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 0.089784
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 0.061379
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 0.047321
+
+cnn512:
+
+Current Epoch: 1
+    <missing>
+Current Epoch: 2
+Cross Entropy Loss For This Epoch: 0.4352
+Current Epoch: 3
+Cross Entropy Loss For This Epoch: 0.21199
+Current Epoch: 4
+Cross Entropy Loss For This Epoch: 0.12154
+Current Epoch: 5
+Cross Entropy Loss For This Epoch: 0.076867
+Current Epoch: 6
+Cross Entropy Loss For This Epoch: 0.050615
+Current Epoch: 7
+Cross Entropy Loss For This Epoch: 0.034497

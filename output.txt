@@ -1,154 +1,144 @@
 >> conv_testing2
-
-cnn13:
-
+1x1 kernel with 3 channels:
 Current Epoch: 1
-Cross Entropy Loss For This Epoch: 3.1818
+Cross Entropy Loss For This Epoch: 3.1839
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 
-cnn16:
-
+1x1 kernel with 6 channels:
 Current Epoch: 1
-Cross Entropy Loss For This Epoch: 3.184
+Cross Entropy Loss For This Epoch: 3.182
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 
-cnn112:
-
+1x1 kernel with 12 channels:
 Current Epoch: 1
-Cross Entropy Loss For This Epoch: 3.1874
+Cross Entropy Loss For This Epoch: 3.185
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 3.1782
 
-cnn33:
-
+3x3 kernel with 3 channels:
 Current Epoch: 1
-Cross Entropy Loss For This Epoch: 3.1959
+Cross Entropy Loss For This Epoch: 1.8748
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 0.7156
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 0.47479
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 0.34068
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 0.2656
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 0.20952
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 3.1785
+Cross Entropy Loss For This Epoch: 0.18753
 
-cnn36:
-
+3x3 kernel with 6 channels:
 Current Epoch: 1
-Cross Entropy Loss For This Epoch: 1.8638
+Cross Entropy Loss For This Epoch: 3.2021
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 0.71008
+Cross Entropy Loss For This Epoch: 3.1783
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 0.54276
+Cross Entropy Loss For This Epoch: 3.1783
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 0.46793
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 0.42201
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 0.38824
+Cross Entropy Loss For This Epoch: 3.1782
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 0.36139
+Cross Entropy Loss For This Epoch: 3.1782
 
-cnn312:
-
+3x3 kernel with 12 channels:
 Current Epoch: 1
-Cross Entropy Loss For This Epoch: 1.5573
+Cross Entropy Loss For This Epoch: 2.0883
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 0.53109
+Cross Entropy Loss For This Epoch: 0.86294
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 0.37899
+Cross Entropy Loss For This Epoch: 0.64633
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 0.31607
+Cross Entropy Loss For This Epoch: 0.54192
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 0.28009
+Cross Entropy Loss For This Epoch: 0.43228
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 0.25176
+Cross Entropy Loss For This Epoch: 0.29698
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 0.23208
+Cross Entropy Loss For This Epoch: 0.1962
 
-cnn53:
-
+5x5 kernel with 3 channels:
 Current Epoch: 1
-Cross Entropy Loss For This Epoch: 2.2391
+Cross Entropy Loss For This Epoch: 2.6322
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 0.67245
+Cross Entropy Loss For This Epoch: 0.87629
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 0.47159
+Cross Entropy Loss For This Epoch: 0.62552
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 0.39965
+Cross Entropy Loss For This Epoch: 0.52008
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 0.35498
+Cross Entropy Loss For This Epoch: 0.49239
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 0.36711
+Cross Entropy Loss For This Epoch: 0.48156
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 0.34309
+Cross Entropy Loss For This Epoch: 0.45179
 
-cnn56:
-
+5x5 kernel with 6 channels:
 Current Epoch: 1
     <missing>
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 0.52096
+Cross Entropy Loss For This Epoch: 0.64317
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 0.22939
+Cross Entropy Loss For This Epoch: 0.32765
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 0.13418
+Cross Entropy Loss For This Epoch: 0.20831
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 0.089784
+Cross Entropy Loss For This Epoch: 0.18904
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 0.061379
+Cross Entropy Loss For This Epoch: 0.13772
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 0.047321
+Cross Entropy Loss For This Epoch: 0.1159
 
-cnn512:
-
+5x5 kernel with 12 channels:
 Current Epoch: 1
     <missing>
 Current Epoch: 2
-Cross Entropy Loss For This Epoch: 0.4352
+Cross Entropy Loss For This Epoch: 0.97273
 Current Epoch: 3
-Cross Entropy Loss For This Epoch: 0.21199
+Cross Entropy Loss For This Epoch: 0.64956
 Current Epoch: 4
-Cross Entropy Loss For This Epoch: 0.12154
+Cross Entropy Loss For This Epoch: 0.37988
 Current Epoch: 5
-Cross Entropy Loss For This Epoch: 0.076867
+Cross Entropy Loss For This Epoch: 0.2319
 Current Epoch: 6
-Cross Entropy Loss For This Epoch: 0.050615
+Cross Entropy Loss For This Epoch: 0.16321
 Current Epoch: 7
-Cross Entropy Loss For This Epoch: 0.034497
+Cross Entropy Loss For This Epoch: 0.11563

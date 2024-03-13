@@ -13,7 +13,8 @@ load('validationLabels.mat');
 
 cnns = [cnn13 cnn16 cnn112 cnn33 cnn36 cnn312 cnn53 cnn56 cnn512];
 
-score = zeros(9);
+score = zeros(9, 1);
+x = ["cnn13" 'cnn16' 'cnn112' 'cnn33' 'cnn36' 'cnn312' 'cnn53' 'cnn56' 'cnn512'];
 
 for i = 1:length(cnns)
     for j = 1:size(validationLabels, 2)
@@ -26,6 +27,11 @@ for i = 1:length(cnns)
             score(i) = score(i) + 1;
         end
     end
-    disp(score(i) / 2455);
+    % disp(score(i) / 2455);
+    score(i) = score(i) / 2455;
 end
-
+hold on
+bar(x, score);
+title("CNN Accuracy on Validation Set");
+xlabel("Neural Network");
+ylabel("Overall Accuracy");
